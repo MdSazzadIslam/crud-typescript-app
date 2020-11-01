@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import{BrowserRouter as Router,Route, Switch, Link} from "react-router-dom";
+ 
+import CustomerList from './components/CustomerList';
+import EditCustomer from './components/EditCustomer';
+import CreateCustomer from './components/CreateCustomer';
 
-function App() {
+ 
+
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+       <Router>
+           
+
+     
+       <Switch>
+         <Route path={'/'} exact   component={CreateCustomer}/>
+        <Route path="/edit-customer/:name/:address/:key" exact   component={EditCustomer}/>
+        <Route path="/customer-list"  exact  component={CustomerList}/>
+
+       </Switch>
+     </Router>
+    
     </div>
   );
 }

@@ -1,0 +1,9 @@
+.body {
+  display: flex;
+}
+
+.table,
+th,
+td {
+  border-spacing: 5px;
+}
