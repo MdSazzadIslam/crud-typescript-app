@@ -7,7 +7,7 @@ import CreateCustomer from './components/CreateCustomer';
 
  
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <div className="App">
        <Router>

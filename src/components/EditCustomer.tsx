@@ -23,7 +23,7 @@ const defaultState:IProps = {
 
  
 
-const EditCustomer = (props: any) => {
+const EditCustomer: React.FC = (props: any) => {
 
  
 debugger;

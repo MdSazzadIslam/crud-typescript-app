@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import{Link} from "react-router-dom";
 import services from "../services";
 import "./Customer.css";
+ 
 
 export interface IProps
 {   id:number,
@@ -11,7 +12,7 @@ export interface IProps
  
 
 
-const CustomerList = () => {
+const CustomerList: React.FC = () => {
  
   const [customers, setCustomers] = React.useState<
     IProps[]
@@ -52,6 +53,12 @@ useEffect(() =>{
     }
   };
 
+  const columns = 
+    [{
+  dataField: 'id',
+  text: 'Product ID'
+    }];
+
     return (
         <div className="table">
                 <h1>List</h1>
@@ -63,7 +70,7 @@ useEffect(() =>{
       >
         Delete All
       </button>
-            <table>
+       
         <thead>
           <tr>
             <th>SL</th>
@@ -96,7 +103,7 @@ useEffect(() =>{
             </tr>
           ))}
             </tbody>
-            </table>
+           
         </div>
     )
 } ;export default CustomerList

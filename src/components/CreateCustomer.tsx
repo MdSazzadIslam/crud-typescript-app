@@ -22,7 +22,7 @@ const defaultState:IProps = {
 
  
 
-const CreateCustomer = () => {
+const CreateCustomer:React.FC = () => {
 
  
 
