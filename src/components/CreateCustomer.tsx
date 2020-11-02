@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import services from "../services";
-/* import "./Customer.css"; */
+import "./Customer.css";  
 import{Link} from "react-router-dom";
 
 export interface IProps
@@ -44,9 +44,13 @@ const handleChange = <P extends keyof IProps>(prop: P, value: IProps[P]) => {
 
 
     return (
-        <div className="customer">
+        <div className="container">
+               <div className="row"> 
             <h1>Add Cusomer</h1>
+         
              <Link to="/customer-list">List</Link>
+ 
+ 
             <input type="text" placeholder="Enter name" name ="name"  
             value={customer.name}
             onChange={(e) => {
@@ -54,14 +58,17 @@ const handleChange = <P extends keyof IProps>(prop: P, value: IProps[P]) => {
         }}
            />
  
+ 
+     
             <input type="text" placeholder="Enter address" name ="address"  value={customer.address}
               onChange={(e)=> handleChange('address', e.target.value)}
            />
-    <div>
+          
+        
  <button onClick={handleSubmit}>Save</button>
     </div>
             
-           
+            
             
         </div>
     )

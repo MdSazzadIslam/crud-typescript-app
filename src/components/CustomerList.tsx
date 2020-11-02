@@ -53,14 +53,11 @@ useEffect(() =>{
     }
   };
 
-  const columns = 
-    [{
-  dataField: 'id',
-  text: 'Product ID'
-    }];
+   
 
     return (
-        <div className="table">
+      <div className="container">
+             <div className="row"> 
                 <h1>List</h1>
       <Link to="/">Add</Link>
       <button
@@ -103,7 +100,7 @@ useEffect(() =>{
             </tr>
           ))}
             </tbody>
-           
+           </div>
         </div>
     )
 } ;export default CustomerList

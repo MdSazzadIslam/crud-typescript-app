@@ -57,7 +57,8 @@ const handleChange = <P extends keyof IProps>(prop: P, value: IProps[P]) => {
  
 
     return (
-        <div className="customer">
+         <div className="container">
+             <div className="row"> 
             <h1>Edit Cusomer</h1>
              <Link to="/customer-list">List</Link>
             <input type="text" placeholder="Enter name" name ="name"  
@@ -75,7 +76,8 @@ const handleChange = <P extends keyof IProps>(prop: P, value: IProps[P]) => {
     </div>
             
            
-            
+          </div>
+
         </div>
     )
 }
