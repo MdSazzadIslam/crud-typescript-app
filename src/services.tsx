@@ -2,34 +2,30 @@ import firebase from "./firebase";
 const db = firebase.ref("/customer");
 
 class services {
- 
   getAll() {
     debugger;
     console.log(db);
     return db;
   }
 
- 
-
   saveData(data: any) {
     debugger;
     try {
       return db
-      .push(data)
-      .then((res) => {
-        console.log("Added");
-        alert("Added");
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+        .push(data)
+        .then((res) => {
+          console.log("Added");
+          alert("Added");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-    
   }
 
-   updateData(key: any, value :any) {
+  updateData(key: any, value: any) {
     debugger;
     return db
       .child(key)
@@ -43,8 +39,7 @@ class services {
       });
   }
 
-deletData(key: any) {
-    
+  deletData(key: any) {
     return db
       .child(key)
       .remove()
@@ -56,7 +51,6 @@ deletData(key: any) {
       });
   }
 
- 
   deletAllData() {
     return db
       .remove()
@@ -67,4 +61,5 @@ deletData(key: any) {
         console.log(err);
       });
   }
-} export default new services
+}
+export default new services();

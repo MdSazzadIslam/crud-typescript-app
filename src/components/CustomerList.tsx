@@ -1,30 +1,21 @@
-import React, {useState, useEffect} from 'react'
-import{Link} from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import services from "../services";
 import "./Customer.css";
- 
 
-export interface IProps
-{   id:number,
-    name: string,
-    address: string
+export interface IProps {
+  id: number;
+  name: string;
+  address: string;
 }
- 
-
 
 const CustomerList: React.FC = () => {
- 
-  const [customers, setCustomers] = React.useState<
-    IProps[]
-  >([]);
- 
-  const getData= () =>{
+  const [customers, setCustomers] = React.useState<IProps[]>([]);
 
- 
-  debugger;
+  const getData = () => {
+    debugger;
     const data = services.getAll();
     data.on("value", (snapshot) => {
-
       const studentRef = snapshot.val();
       const customers = [];
       for (let id in studentRef) {
@@ -32,12 +23,11 @@ const CustomerList: React.FC = () => {
       }
       setCustomers(customers);
     });
-  }
+  };
 
-useEffect(() =>{
-  getData();
-}, []);
-
+  useEffect(() => {
+    getData();
+  }, []);
 
   const deleteAllData = async () => {
     debugger;
@@ -53,21 +43,19 @@ useEffect(() =>{
     }
   };
 
-   
+  return (
+    <div className="container">
+      <div className="row">
+        <h1>List</h1>
+        <Link to="/">Add</Link>
+        <button
+          onClick={() => {
+            deleteAllData();
+          }}
+        >
+          Delete All
+        </button>
 
-    return (
-      <div className="container">
-             <div className="row"> 
-                <h1>List</h1>
-      <Link to="/">Add</Link>
-      <button
-        onClick={() => {
-          deleteAllData();
-        }}
-      >
-        Delete All
-      </button>
-       
         <thead>
           <tr>
             <th>SL</th>
@@ -78,14 +66,16 @@ useEffect(() =>{
         </thead>
 
         <tbody>
-           {customers.map((customer, index) => (
+          {customers.map((customer, index) => (
             <tr>
               <td>{index}</td>
               <td>{customer.id}</td>
-               <td>{customer.name}</td>
+              <td>{customer.name}</td>
               <td>{customer.address}</td>
-                           <td>
-                <Link to={`/edit-customer/${customer.name}/${customer.address}/${customer.id} `}>
+              <td>
+                <Link
+                  to={`/edit-customer/${customer.name}/${customer.address}/${customer.id} `}
+                >
                   Edit
                 </Link>
               </td>
@@ -99,10 +89,9 @@ useEffect(() =>{
               </button>
             </tr>
           ))}
-            </tbody>
-           </div>
-        </div>
-    )
-} ;export default CustomerList
-
- 
+        </tbody>
+      </div>
+    </div>
+  );
+};
+export default CustomerList;
